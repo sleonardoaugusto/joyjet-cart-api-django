@@ -1,0 +1,27 @@
+[
+  {
+    "model": "core.cart",
+    "pk": 1,
+    "fields": {}
+  },
+  {
+    "model": "core.cart",
+    "pk": 2,
+    "fields": {}
+  },
+  {
+    "model": "core.cart",
+    "pk": 3,
+    "fields": {}
+  },
+  {
+    "model": "core.cart",
+    "pk": 4,
+    "fields": {}
+  },
+  {
+    "model": "core.cart",
+    "pk": 5,
+    "fields": {}
+  }
+]

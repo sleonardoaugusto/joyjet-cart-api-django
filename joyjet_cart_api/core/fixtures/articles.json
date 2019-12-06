@@ -1,0 +1,66 @@
+[
+  {
+    "model": "core.article",
+    "pk": 1,
+    "fields": {
+      "name": "water",
+      "price": 100
+    }
+  },
+  {
+    "model": "core.article",
+    "pk": 2,
+    "fields": {
+      "name": "honey",
+      "price": 200
+    }
+  },
+  {
+    "model": "core.article",
+    "pk": 3,
+    "fields": {
+      "name": "mango",
+      "price": 400
+    }
+  },
+  {
+    "model": "core.article",
+    "pk": 4,
+    "fields": {
+      "name": "tea",
+      "price": 1000
+    }
+  },
+  {
+    "model": "core.article",
+    "pk": 5,
+    "fields": {
+      "name": "ketchup",
+      "price": 999
+    }
+  },
+  {
+    "model": "core.article",
+    "pk": 6,
+    "fields": {
+      "name": "mayonnaise",
+      "price": 999
+    }
+  },
+  {
+    "model": "core.article",
+    "pk": 7,
+    "fields": {
+      "name": "fries",
+      "price": 378
+    }
+  },
+  {
+    "model": "core.article",
+    "pk": 8,
+    "fields": {
+      "name": "ham",
+      "price": 147
+    }
+  }
+]
