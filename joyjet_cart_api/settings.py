@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'joyjet_cart_api.core',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
