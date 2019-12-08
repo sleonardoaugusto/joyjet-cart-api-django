@@ -1,4 +1,5 @@
 .joyjet-cart-api-django/
 .pytest_cache/
 .idea/
+migrations/
 db.sqlite3
