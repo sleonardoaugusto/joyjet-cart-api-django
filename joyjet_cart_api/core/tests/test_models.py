@@ -25,28 +25,28 @@ class ItemTest(TestCase):
 
     def test_item_amount(self):
         """Return qty * price"""
-        expected = 600
-        self.assertEqual(expected, self.items[0].item_amount)
-        expected = 400
-        self.assertEqual(expected, self.items[1].item_amount)
-        expected = 1000
-        self.assertEqual(expected, self.items[2].item_amount)
+        amount = 600
+        self.assertEqual(amount, self.items[0].item_amount)
+        amount = 400
+        self.assertEqual(amount, self.items[1].item_amount)
+        amount = 1000
+        self.assertEqual(amount, self.items[2].item_amount)
 
     def test_cart_amount(self):
-        """Return the sum of all item_amount property"""
-        expected = 2000
-        self.assertEqual(expected, self.cart.cart_amount)
+        """Return the sum of all items amount"""
+        amount = 2000
+        self.assertEqual(amount, self.cart.cart_amount)
 
     def test_get_delivery_fee(self):
         """Return delivery fee price based on total amount"""
-        prices = [{'amount': 0, 'expected': 800},
-                  {'amount': 999, 'expected': 800},
-                  {'amount': 1000, 'expected': 400},
-                  {'amount': 1999, 'expected': 400},
-                  {'amount': 2000, 'expected': 0},
-                  {'amount': 99999, 'expected': 0}]
+        prices = [{'amount': 0, 'price': 800},
+                  {'amount': 999, 'price': 800},
+                  {'amount': 1000, 'price': 400},
+                  {'amount': 1999, 'price': 400},
+                  {'amount': 2000, 'price': 0},
+                  {'amount': 99999, 'price': 0}]
         for p in prices:
             with self.subTest():
-                price = p['expected']
+                price = p['price']
                 result = DeliveryFee.get_by_total_amount(p['amount']).price
                 self.assertEqual(price, result)
