@@ -21,4 +21,4 @@ class ItemSerializer(serializers.ModelSerializer):
 class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart
-        fields = ['id', 'cart_amount']
+        fields = ['id', 'price']

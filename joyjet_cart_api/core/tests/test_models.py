@@ -1,6 +1,12 @@
 from django.test import TestCase
 
-from joyjet_cart_api.core.models import Item, Article, Cart, DeliveryFee
+from joyjet_cart_api.core.models import (
+    Item,
+    Article,
+    Cart,
+    DeliveryFee,
+    Discount
+)
 
 
 class ItemTest(TestCase):
@@ -23,19 +29,21 @@ class ItemTest(TestCase):
             DeliveryFee(min_price=2000, max_price=None, price=0)
         ])
 
+        self.discounts = Discount.objects.create(disc_type='amount', value=25, article_id=2)
+
     def test_item_amount(self):
         """Return qty * price"""
         amount = 600
         self.assertEqual(amount, self.items[0].item_amount)
-        amount = 400
+        amount = 350
         self.assertEqual(amount, self.items[1].item_amount)
         amount = 1000
         self.assertEqual(amount, self.items[2].item_amount)
 
-    def test_cart_amount(self):
+    def test_cart_price(self):
         """Return the sum of all items amount"""
-        amount = 2000
-        self.assertEqual(amount, self.cart.cart_amount)
+        amount = 2350
+        self.assertEqual(amount, self.cart.price)
 
     def test_get_delivery_fee(self):
         """Return delivery fee price based on total amount"""
@@ -50,3 +58,8 @@ class ItemTest(TestCase):
                 price = p['price']
                 result = DeliveryFee.get_by_total_amount(p['amount']).price
                 self.assertEqual(price, result)
+
+    def test_get_by_article(self):
+        """Return discount based on article id"""
+        result = self.discounts.get_by_article(2)
+        self.assertEqual(2, result.article_id)

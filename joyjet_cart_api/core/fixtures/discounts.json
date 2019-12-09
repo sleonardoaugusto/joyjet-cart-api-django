@@ -1,0 +1,47 @@
+[
+  {
+    "model": "core.discount",
+    "pk": 1,
+    "fields": {
+      "disc_type": "amount",
+      "value": 25,
+      "article_id": 2
+    }
+  },
+  {
+    "model": "core.discount",
+    "pk": 2,
+    "fields": {
+      "disc_type": "percentage",
+      "value": 30,
+      "article_id": 5
+    }
+  },
+  {
+    "model": "core.discount",
+    "pk": 3,
+    "fields": {
+      "disc_type": "percentage",
+      "value": 30,
+      "article_id": 6
+    }
+  },
+  {
+    "model": "core.discount",
+    "pk": 4,
+    "fields": {
+      "disc_type": "percentage",
+      "value": 25,
+      "article_id": 7
+    }
+  },
+  {
+    "model": "core.discount",
+    "pk": 5,
+    "fields": {
+      "disc_type": "percentage",
+      "value": 10,
+      "article_id": 8
+    }
+  }
+]
