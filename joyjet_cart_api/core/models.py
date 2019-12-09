@@ -10,9 +10,19 @@ class Article(models.Model):
 class Cart(models.Model):
     pass
 
+    @staticmethod
+    def get_amount(items):
+        return sum(item.item_amount for item in items)
+
+    @staticmethod
+    def get_delivery_fee(total_amount):
+        return DeliveryFee.get_by_total_amount(total_amount).price
+
     @property
     def cart_amount(self):
-        return sum(item.item_amount for item in self.items.all())
+        total_amount = self.get_amount(self.items.all())
+        tax = self.get_delivery_fee(total_amount)
+        return total_amount + tax
 
 
 class Item(models.Model):
