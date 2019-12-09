@@ -23,7 +23,7 @@
     "fields": {
       "min_price": 2000,
       "max_price": null,
-      "price": 800
+      "price": 0
     }
   }
 ]
