@@ -1,0 +1,29 @@
+[
+  {
+    "pk": 1,
+    "model": "core.deliveryfee",
+    "fields": {
+      "min_price": 0,
+      "max_price": 999,
+      "price": 800
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.deliveryfee",
+    "fields": {
+      "min_price": 1000,
+      "max_price": 1999,
+      "price": 400
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.deliveryfee",
+    "fields": {
+      "min_price": 2000,
+      "max_price": null,
+      "price": 800
+    }
+  }
+]

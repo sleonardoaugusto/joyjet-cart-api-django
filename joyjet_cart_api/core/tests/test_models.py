@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from joyjet_cart_api.core.models import Item, Article, Cart
+from joyjet_cart_api.core.models import Item, Article, Cart, DeliveryFee
 
 
 class ItemTest(TestCase):
@@ -17,6 +17,12 @@ class ItemTest(TestCase):
             Item(quantity=1, article=self.articles[2], cart=self.cart)
         ])
 
+        self.delivery_fees = DeliveryFee.objects.bulk_create([
+            DeliveryFee(min_price=0, max_price=999, price=800),
+            DeliveryFee(min_price=1000, max_price=1999, price=400),
+            DeliveryFee(min_price=2000, max_price=None, price=0)
+        ])
+
     def test_item_amount(self):
         """Return qty * price"""
         expected = 600
@@ -30,3 +36,17 @@ class ItemTest(TestCase):
         """Return the sum of all item_amount property"""
         expected = 2000
         self.assertEqual(expected, self.cart.cart_amount)
+
+    def test_get_delivery_fee(self):
+        """Return delivery fee price based on total amount"""
+        prices = [{'amount': 0, 'expected': 800},
+                  {'amount': 999, 'expected': 800},
+                  {'amount': 1000, 'expected': 400},
+                  {'amount': 1999, 'expected': 400},
+                  {'amount': 2000, 'expected': 0},
+                  {'amount': 99999, 'expected': 0}]
+        for p in prices:
+            with self.subTest():
+                price = p['expected']
+                result = DeliveryFee.get_by_total_amount(p['amount']).price
+                self.assertEqual(price, result)
